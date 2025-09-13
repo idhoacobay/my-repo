@@ -1,16 +1,74 @@
 <!DOCTYPE html>
 <html lang="vi">
+    
 <head>
-  <meta charset="UTF-8">
-  <title>Tiêu đề trang</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kessoku Band Music</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+    
 <body>
-  <header>Phần đầu trang</header>
-  <nav>Thanh điều hướng</nav>
-  <main>Nội dung chính</main>
-  <aside>Thông tin phụ</aside>
-  <footer>Chân trang</footer>
-  <script src="main.js"></script>
+    <img src="/asset/logo.svg" alt="Bocchi The Rock" class="center_img" style="width: 550px; scale: 1.5; margin-top: 100px;">     
+    <div class="background"></div>
+
+    <div class="search_bar" class="hover_effect">
+        <input type="text" placeholder="Search"/>
+    </div>
+
+    <button class="menu_toggle">☰ MENU</button>
+    <div class="side_menu" id="sidemenu">
+        <div class="overlay" id="overlay"></div>
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">SINGLE</a></li>
+            <li><a href="#">ALBUM</a></li>
+            <li><a href="#">OST</a></li>
+        </ul>
+    </div>
+
+
+    <main>
+        <h1>Ano Bando</h1>
+            <div class="video_wrapper">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/L2i0i9gWE00?si=CRImGNxteRb6pj8b" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+    </main>
+    
+
+    <div class="page_wrapper">
+        <footer>
+            KESSOKU BAND © 2025
+        </footer>
+    </div>
+
+    <script>
+        const menuToggle = document.querySelector('.menu_toggle');
+        const sideMenu = document.getElementById('sidemenu');
+        const overlay = document.getElementById('overlay');
+
+        let menuOpen = false;
+
+        function openMenu() {
+            sideMenu.style.transform = 'translateX(0)';  
+            overlay.style.display = 'block';
+            menuOpen = true;
+        }
+
+        function closeMenu() {
+            sideMenu.style.transform = 'translateX(100%)';  
+            overlay.style.display = 'none';
+            menuOpen = false;
+        }
+
+        menuToggle.addEventListener('click', () => {
+            if (menuOpen) closeMenu();
+            else openMenu();
+        });
+        overlay.addEventListener('click', closeMenu);
+    </script>
+
 </body>
+
+
 </html>
